@@ -39,7 +39,7 @@
             v-model="password"
         >
         </v-text-field>
-        <v-btn :disabled="!userName" color="#7400FF" class="mt-2" type="submit" block @click="userSubmit">Registrera</v-btn>
+        <v-btn :disabled="!userName" color="#00C67F" class="mt-2" type="submit" block @click="userSubmit">Registrera</v-btn>
     </v-form>
     
     </div>
@@ -88,6 +88,7 @@ const userSubmit = async () => {
         sendEmail()
         setUser()
         localStorage.setItem('userId', user.uid);
+        location.reload();
   })
   .catch((error) => {
     error.code;

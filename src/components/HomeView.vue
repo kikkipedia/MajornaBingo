@@ -16,6 +16,7 @@
             <!-- If userId in local storage -->
             <div v-if="userId" class="welcome"> 
                 <h2 v-if="showSheet == false">Välkommen {{ user }}</h2>
+                <p v-if="showSheet == false" class="left">Börja med att generera en bricka, och spara gärna ID! Bingo är en rad, att spela hela brickan är inte möjligt just nu :(</p>
                 <!-- if bingo id in local storage -->
                 <p class="bingoId" v-if="bingoId && !store.bingo == true">Din brickas ID är: {{ bingoId }} <br/>(kan vara bra att spara!)</p>
                 <div style="text-align: left;">
@@ -26,7 +27,7 @@
         <!-- Visible if showShuffle is true -->
         <div class="btn-container" v-if="showShuffle == true || store.bingo">
             <v-btn
-                color="#00FF00"
+                color="#BF46DA"
                 size="large"
                 :loading="loading"
                 @click="randomizeSheet"
@@ -326,5 +327,17 @@ p {
 }
 .fetchOld {
     margin-bottom: 1rem;;
+}
+
+h2 {
+    font-family: "Press Start 2P", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #BF46DA;
+    font-size: 1rem;
+    line-height: 2.5rem;
+}
+
+.left {
+    text-align: left;
+    margin-left: 1rem;
 }
 </style>

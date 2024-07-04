@@ -1,6 +1,9 @@
 <template>
     <div class="login">
-        <img src="../assets/bingologo.png" alt="logo" class="bingologo"/>
+        <div class="logo">
+            <h2>Majornas</h2>
+            <h2>Sommarbingo</h2>
+        </div>
         <v-dialog v-model="openReset" width="90%">
             <v-btn
                 color="rgb(10, 150, 125)"
@@ -28,10 +31,10 @@
                 :rules="[rules.required]"
             ></v-text-field>
             <p v-if="errorMsg != ''">{{ errorMsg }}! Nånting gick fel! Kontakta Kicki eller Danne eller dubbelkolla lösenordet</p>
-            <v-btn type="submit" color="#00FF00">Play bingo!</v-btn>
+            <v-btn type="submit" color="#00C67F">Play bingo!</v-btn>
         </v-form>
         <p>or you just <span class="link" @click="openReset = true">forgot your password?</span></p>
-        <v-btn color="#7400FF" @click="openRegister = true" v-if="!openRegister">Register</v-btn>
+        <v-btn color="#00BDFF" @click="openRegister = true" v-if="!openRegister">Register</v-btn>
         <Register v-if="openRegister"/>
     </div>
 </template>
@@ -100,5 +103,16 @@ const userSubmit = () => {
 p {
     margin-top: 1rem;
     margin-bottom: 1rem;
+}
+
+h2 {
+    color: #40916c;
+    font-size: 2rem;
+    line-height: 2.5rem;
+}
+
+.logo {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 </style>

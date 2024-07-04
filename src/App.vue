@@ -48,8 +48,8 @@
   </RouterView>
 </div>
 <footer>
-    <p><em>© 2024 Kvilles Sommarbingo</em>. <a href="https://github.com/kikkipedia/Majorna/" target="_blank">Checkout the code</a></p> 
-    <p>Idé av Sikas. Kod av Kicki. Tack Alex!<br/>Rapportera fel via sms: <a href="sms:+46762100615">0762100615</a></p>
+    <p><em>© 2024 Kickis Sommarbingo</em>. <a href="https://github.com/kikkipedia/MajornaBingo" target="_blank">Checkout the code</a></p> 
+    <p>Idé av Sikas. Kod av Kicki. Tack Alex!<br/>Rapportera gärna fel via sms: <a href="sms:+46762100615">0762100615</a></p>
 </footer>
 </template>
 
@@ -91,7 +91,6 @@ return descriptions.value
 }
 
 onMounted(async () => {
-  store.isAuth = true //TBD remove!!
 const items = await getBingoItems()
 descriptions.value = items
 sortItems()
@@ -107,6 +106,8 @@ color: #d8f3dc;
 margin: auto;
 display: flex;
 flex-wrap: wrap;
+margin-left: 10px;
+background-color: #40916c;
 }
 
 .mdi:before, .mdi-set {
@@ -137,19 +138,22 @@ float: right;
 .main {
 background-color: white;
 margin-top: 10px;
-margin-bottom: 10px;
 min-height: calc(100vh - 140px) !important;
+margin: 0 10px;
 }
 
 footer {
 text-align: center;
 bottom: 0;
 width: 100% !important;
-padding: 0.5rem;
 font-size: 0.8rem;
 color: #d8f3dc;
-background-color: #7400FF;
+background-color: #40916c;
 margin: auto;
+}
+
+footer a {
+color: rgb(116, 0, 255);
 }
 
 h4 {
@@ -163,9 +167,5 @@ padding-top: 5px
 --v-icon-size-multiplier: 2;
 }
 
-h2 {
-font-size: 1.5rem;
-font-weight: bold;
-color: #d8f3dc;
-}
+
 </style>
