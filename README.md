@@ -31,3 +31,20 @@ npm run dev
 ```sh
 npm run build
 ```
+
+# Setup Firebase with Firestore and Auth
+
+Create a Firebase account with Firestore in the Google Firebase web console.
+Add authentication with email/password.
+Put the config variables in a .env file in the root directory of this project.
+
+Then, in ptoject base, run: 
+
+```sh
+npm install -g firebase-tools
+```
+then 
+
+```sh
+firebase init
+```
