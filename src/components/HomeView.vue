@@ -19,7 +19,7 @@
                 <!-- if bingo id in local storage -->
                 <p class="bingoId" v-if="bingoId && !store.bingo == true">Din brickas ID är: {{ bingoId }} <br/>(kan vara bra att spara!)</p>
                 <div style="text-align: left;">
-                    <!-- <p class="bingoInfo" v-if="showSheet == true">Vid Bingo ring personsökaren <b>0740119540 </b> och lämna telefonnummer och vänta på att bli uppringd av vår vinsttelefon</p> -->
+                    <p class="bingoInfo" v-if="showSheet == true">Bingot spelas runt Mariaplan och Älvsborgsgatan ner till Växtverket och Mac's. Fusk, missbruk, och otillåtna användare portas och injeceras med virus</p>
                 </div>
             </div>
 
@@ -273,6 +273,7 @@ watch(() => store.name, (name) => {
 .bingoId {
     font-size: 0.7rem;
     color: rgb(10, 150, 125);
+    padding-top: 10px;
 }
 
 .bingoInfo {

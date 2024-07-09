@@ -30,7 +30,7 @@
                 required
                 :rules="[rules.required]"
             ></v-text-field>
-            <p v-if="errorMsg != ''">{{ errorMsg }}! Nånting gick fel! Kontakta Kicki eller Danne eller dubbelkolla lösenordet</p>
+            <p v-if="errorMsg != ''">{{ errorMsg }}! Nånting gick fel! Kontakta via sms eller dubbelkolla lösenordet</p>
             <v-btn type="submit" color="#00C67F">Play bingo!</v-btn>
         </v-form>
         <p>or you just <span class="link" @click="openReset = true">forgot your password?</span></p>

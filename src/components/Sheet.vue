@@ -172,7 +172,7 @@ watch(() => props.bingoSheet?.bingo, () => {
 <style scoped>
 
 .bingoSheet {
-    border: 1px solid #6200ea;
+    border: 1px solid rgb(10, 150, 125);
     border-radius: 10px;
     padding: 0.3rem;
     margin: 1rem 0;
@@ -181,14 +181,15 @@ watch(() => props.bingoSheet?.bingo, () => {
 }
 
 table {
-    width: 100%;   
+    width: 100%; 
+    background-color: rgb(10, 150, 125);   
 }
 
 td {
     font-size: 8px;
     color: #6200ea;
     background-color:white;
-    border: 1px solid #6200ea;
+    border: 1px solid rgb(10, 150, 125);
     height: 70px;
     text-align: center;
     cursor: pointer;
@@ -197,7 +198,7 @@ td {
 }
 
 .checked {
-    background-color: #6200ea;
+    background-color: rgb(10, 150, 125);
     color: white;
 }
 

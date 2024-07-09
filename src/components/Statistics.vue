@@ -201,4 +201,8 @@ onMounted(() => {
     padding: 0;
     height: 400px;
 }
+
+h3{
+    padding-top: 15px;
+}
 </style>
