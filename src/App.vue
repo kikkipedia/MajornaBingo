@@ -19,12 +19,13 @@
         @click="openInfo = false"
       ></v-btn>
       <v-card-text>
-        <p style="color: #7400FF;">Här finns en lista som kan vara till hjälp när man inte fattar vad i helvete en ruta betyder.</p>
+        <p>Här finns en lista som kan vara till hjälp när man inte fattar vad en ruta betyder.</p>
         <hr/>
         <div v-for="item in descriptions">
-          <h4 v-if="item.description != null">{{ item.item }}</h4>
+          <h3 v-if="item.description != null || item.situated != null">{{ item.item }}</h3>
           <p v-if="item.description != null">{{ item.description }}</p>
-          <hr v-if="item.description != null"/>
+          <p v-if="item.situated != null"><Map :coordinates="item.situated" class="map"/></p>
+          <hr v-if="item.description != null || item.situated != null"/>
         </div>
       </v-card-text>
     </v-card>
@@ -48,8 +49,8 @@
   </RouterView>
 </div>
 <footer>
-    <p><em>© 2024 Kickis Sommarbingo</em>. <a href="https://github.com/kikkipedia/MajornaBingo" target="_blank">Checkout the code</a></p> 
-    <p>Idé av Sikas. Kod av Kicki. Tack Alex!<br/>Rapportera gärna fel via sms: <a href="sms:+46762100615">0762100615</a></p>
+    <p><em>© 2024 Majornas Sommarbingo</em>. <a href="https://github.com/kikkipedia/MajornaBingo" target="_blank">Checkout the code</a></p> 
+    <p>Idé av Sikas. Kod av Kicki. <strike>Tack Alex!</strike><br/>Rapportera gärna fel via sms: <a href="sms:+46762100615">0762100615</a></p>
 </footer>
 </template>
 
@@ -62,6 +63,7 @@ import { type BingoItem } from './types';
 import Statistics from './components/Statistics.vue';
 import Login from './components/Login.vue';
 import HomeView from './components/HomeView.vue';
+import Map from './components/Map.vue';
 
 const store = useBingoStore()
 const name = ref('')
@@ -167,5 +169,13 @@ padding-top: 5px
 --v-icon-size-multiplier: 2;
 }
 
+h3 {
+font-size: 1rem;
+color: rgb(0, 189, 255);;
+}
 
+.map {
+max-height: 300px;
+padding-bottom: 10px;
+}
 </style>

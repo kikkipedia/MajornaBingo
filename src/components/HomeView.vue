@@ -15,12 +15,11 @@
                 </v-dialog>
             <!-- If userId in local storage -->
             <div v-if="userId" class="welcome"> 
-                <h2 v-if="showSheet == false">Välkommen {{ user }}</h2>
                 <p v-if="showSheet == false" class="left">Börja med att generera en bricka, och spara gärna ID! Bingo är en rad, att spela hela brickan är inte möjligt just nu :(</p>
                 <!-- if bingo id in local storage -->
                 <p class="bingoId" v-if="bingoId && !store.bingo == true">Din brickas ID är: {{ bingoId }} <br/>(kan vara bra att spara!)</p>
                 <div style="text-align: left;">
-                    <p class="bingoInfo" v-if="showSheet == true">Vid Bingo ring personsökaren <b>0740119540 </b> och lämna telefonnummer och vänta på att bli uppringd av vår vinsttelefon</p>
+                    <!-- <p class="bingoInfo" v-if="showSheet == true">Vid Bingo ring personsökaren <b>0740119540 </b> och lämna telefonnummer och vänta på att bli uppringd av vår vinsttelefon</p> -->
                 </div>
             </div>
 

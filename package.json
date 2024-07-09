@@ -20,6 +20,7 @@
     "vue": "^3.4.29",
     "vue-confetti-explosion": "^1.0.2",
     "vue-router": "^4.3.3",
+    "vue3-google-map": "^0.20.0",
     "vuefire": "^3.1.23",
     "vuetify": "^3.6.11"
   },
