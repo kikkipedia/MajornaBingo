@@ -50,7 +50,7 @@
 </div>
 <footer>
     <p><em>© 2024 Majornas Sommarbingo</em>. <a href="https://github.com/kikkipedia/MajornaBingo" target="_blank">Checkout the code</a></p> 
-    <p>Idé av Sikas. Kod av Kicki. <strike>Tack Alex!</strike><br/>Rapportera gärna fel via sms: <a href="sms:+46762100615">0762100615</a></p>
+    <p>Idé av Sikas. Kod av Kicki.</p>
 </footer>
 </template>
 
