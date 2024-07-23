@@ -46,11 +46,19 @@ const fetchSheetById = async (id) => {
 }
 
 const saveNewUser = async (id, name) => {
+  //check if already exists
+  const docRef = doc(db, "users", id);
+  const docSnap = await getDoc(docRef);
+  if (docSnap.exists()) {
+    return
+  }
+  else {
   const docRef = await setDoc(doc(db, "users", id), {
     name: name,
     score: 0
   });
   console.log("Document written with ID: ", docRef.id);
+}
   return id;
 }
 

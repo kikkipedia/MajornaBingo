@@ -46,7 +46,7 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from 'vue';
 import { type BingoItem } from '@/types';
-import { minusBingoItemCount, updateBingoItemCount, updateSheetInDb, updateUserScore } from '@/db';
+import { minusBingoItemCount, saveNewUser, updateBingoItemCount, updateSheetInDb, updateUserScore } from '@/db';
 import { useBingoStore } from '@/stores';
 import ConfettiExplosion from "vue-confetti-explosion";
 import 'animate.css';
@@ -85,7 +85,6 @@ onMounted(() => {
 })
 
 watch(() => props.bingoSheet, () => {
-    console.log(props.bingoSheet)
     setRows()
 })
 
@@ -141,7 +140,7 @@ const checkBingo = () => {
                 explode.value = true
                 overlay.value = true
                 localStorage.setItem('bingo', 'true')
-                //save 
+               
             }
         })
         props.bingoSheet.bingo = bingo
@@ -158,6 +157,8 @@ watch(() => props.bingoSheet?.bingo, () => {
         if (props.bingoSheet.bingo) {
             props.bingoSheet.bingo = true
             store.bingo = true
+             //save the user if not already exists
+            saveNewUser(localStorage.getItem('userId') as string, props.bingoSheet.name)
             //update user score
             updateUserScore(localStorage.getItem('userId') as string)
         }
