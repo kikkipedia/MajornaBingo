@@ -4,6 +4,8 @@
             <h2>Majornas</h2>
             <h2>Sommarbingo</h2>
         </div>
+        <p style="font-size: 12px;">Absolut smidigast att registrera via Google-konto:</p>
+        <v-btn color="#BF46DA" @click="signInWithGoogle">Google login</v-btn>
         <v-dialog v-model="openReset" width="90%">
             <v-btn
                 color="rgb(10, 150, 125)"
@@ -16,7 +18,12 @@
                 </v-card-text>
             </v-card>
         </v-dialog>
-        <v-form @submit.prevent="userSubmit" v-if="!openRegister">
+        <p style="font-size: 12px;">Registrera med email och lösenord:</p>
+        <v-btn color="#00BDFF" @click="openRegister = true" v-if="!openRegister">Registrera</v-btn>
+        <Register v-if="openRegister"/>
+        <v-btn color="#40916c" @click="openLogin = true" style="margin-top: 100px;">Logga in med email</v-btn>
+        
+        <v-form @submit.prevent="userSubmit" v-if="openLogin">
             <v-text-field
                 v-model="email"
                 label="Email"
@@ -33,17 +40,15 @@
             <p v-if="errorMsg != ''">{{ errorMsg }}! Nånting gick fel! Kontakta via sms eller dubbelkolla lösenordet</p>
             <v-btn type="submit" color="#00C67F">Play bingo!</v-btn>
         </v-form>
-        <p>or you just <span class="link" @click="openReset = true">forgot your password?</span></p>
-        <v-btn color="#00BDFF" @click="openRegister = true" v-if="!openRegister">Register</v-btn>
-        <Register v-if="openRegister"/>
+        
+        <p><span class="link" @click="openReset = true">Glömt lösenord?</span></p>
     </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import router from '@/router';
-import { fetchUserById } from '@/db';
+import { fetchUserById, signInWithGoogle } from '@/db';
 import { useBingoStore } from '@/stores';
 import Register from './Register.vue';
 import PswdReset from './PswdReset.vue';
@@ -55,6 +60,7 @@ const store = useBingoStore()
 const errorMsg = ref('');
 const openRegister = ref(false);
 const openReset = ref(false);
+const openLogin = ref(false);
 
 interface Rules {
     required: (value: any) => boolean | string;
@@ -114,5 +120,10 @@ h2 {
 .logo {
     padding-top: 2rem;
     padding-bottom: 2rem;
+}
+
+.link {
+    color: #00BDFF;
+    cursor: pointer;
 }
 </style>

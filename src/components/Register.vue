@@ -100,7 +100,7 @@ const userSubmit = async () => {
 
 const sendEmail = () => {
     const actionCodeSettings = {
-        url: 'http://kvillebingo.web.app/', //todo change to production url
+        url: 'http://majornabingot.web.app/', 
         handleCodeInApp: true,
     };
     const auth = getAuth();

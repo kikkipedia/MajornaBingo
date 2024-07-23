@@ -51,6 +51,7 @@
 <footer>
     <p><em>© 2024 Majornas Sommarbingo</em>. <a href="https://github.com/kikkipedia/MajornaBingo" target="_blank">Checkout the code</a></p> 
     <p>Idé av Sikas. Kod av Kicki.</p>
+    <p><a href="mailto: kristinakerlund@gmail.com">Rapportera fel</a></p>
 </footer>
 </template>
 
