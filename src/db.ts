@@ -50,6 +50,7 @@ const saveNewUser = async (id, name) => {
   const docRef = doc(db, "users", id);
   const docSnap = await getDoc(docRef);
   if (docSnap.exists()) {
+    console.log("Document data:", docSnap.data());
     return
   }
   else {
@@ -136,26 +137,28 @@ const minusBingoItemCount = async (id) => {
 }
 
 const googleProvider = new GoogleAuthProvider();
-export const signInWithGoogle = () => {
-  signInWithPopup(auth, googleProvider).then(() => {
+export const signInWithGoogle = async () => {
+  await signInWithPopup(auth, googleProvider).then((result) => {
     //get firebase user credentials
-    auth.onAuthStateChanged((user) => {
+    auth.onAuthStateChanged(async (user) => {
       //check if already in db
-      fetchUserById(user.uid).then((newuser) => {
-        if (!newuser) {
-          saveNewUser(user.uid, user.displayName)
-        }
-        else{
-          console.log('user already exist', user.uid)
-        }
+      const docRef = doc(db, "users", user.uid);
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        console.log("Document data:", docSnap.data());
+        //set local storage
         localStorage.setItem('userName', user.displayName)
         localStorage.setItem('userId', user.uid)
         location.reload()
-      })
+      }
+      else{
+      saveNewUser(user.uid, user.displayName)
+      //set local storage
+      localStorage.setItem('userName', user.displayName)
+      localStorage.setItem('userId', user.uid)
+      location.reload()
+      }
       })    
-    
-  }).catch((error) => {
-    console.log(error.message)
   })
 }
 
